@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title>Big Enterprises</title>
+		<link rel="stylesheet" type="text/css" href="reset.css" />
+		<link href="layout.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				showPopupMsg("Los Angeles is now back up and running at normal operating speeds.");
+			});
+			
+			function showPopupMsg(m) {
+				$("#messagePopup").html(m).fadeIn(3000);
+				var t = setTimeout('hidePopupMsg()', 5000);
+			}
+			
+			function hidePopupMsg() {
+				$("#messagePopup").fadeOut(3000);
+			}
+			
+			function filter(x) {
+				if (x == "normal") {
+					if ($('#normalChk').is(':checked')) {
+						$('.nrm').fadeIn();
+						if (!($('#routineChk').is(':checked')))
+							$('.r').fadeOut();
+						if (!($('#nonroutineChk').is(':checked')))
+							$('.nr').fadeOut();
+						if (!($('#crisisChk').is(':checked')))
+							$('.crisis').fadeOut();
+					}
+					else {
+						if ($('#routineChk').is(':checked') || $('#nonroutineChk').is(':checked') || $('#crisisChk').is(':checked'))
+							$('.nrm').fadeOut();
+						else {
+							$('.nrm, .nr, .r, .crisis').show();
+						}
+					}
+				}
+				else if (x == "routine") {
+					if ($('#routineChk').is(':checked')) {
+						$('.r').fadeIn();
+						if (!($('#normalChk').is(':checked')))
+							$('.nrm').fadeOut();
+						if (!($('#nonroutineChk').is(':checked')))
+							$('.nr').fadeOut();
+						if (!($('#crisisChk').is(':checked')))
+							$('.crisis').fadeOut();
+					}
+					else {
+						if ($('#normalChk').is(':checked') || $('#nonroutineChk').is(':checked') || $('#crisisChk').is(':checked'))
+							$('.r').fadeOut();
+						else {
+							$('.nrm, .nr, .r, .crisis').show();
+						}
+					}
+				}
+				else if (x == "nonroutine") {
+					if ($('#nonroutineChk').is(':checked')) {
+						$('.nr').fadeIn();
+						if (!($('#normalChk').is(':checked')))
+							$('.nrm').fadeOut();
+						if (!($('#routineChk').is(':checked')))
+							$('.r').fadeOut();
+						if (!($('#crisisChk').is(':checked')))
+							$('.crisis').fadeOut();
+					}
+					else {
+						if ($('#normalChk').is(':checked') || $('#routineChk').is(':checked') || $('#crisisChk').is(':checked'))
+							$('.nr').fadeOut();
+						else {
+							$('.nrm, .nr, .r, .crisis').show();
+						}
+					}
+				}
+				else if (x == "crisis") {
+					if ($('#crisisChk').is(':checked')) {
+						$('.crisis').fadeIn();
+						if (!($('#normalChk').is(':checked')))
+							$('.nrm').fadeOut();
+						if (!($('#routineChk').is(':checked')))
+							$('.r').fadeOut();
+						if (!($('#nonroutineChk').is(':checked')))
+							$('.nr').fadeOut();
+					}
+					else {
+						if ($('#normalChk').is(':checked') || $('#routineChk').is(':checked') || $('#nonroutineChk').is(':checked'))
+							$('.crisis').fadeOut();
+						else {
+							$('.nrm, .nr, .r, .crisis').show();
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="bodyWrapper">
+			<div id="headerWrapper">
+				<img src="be_logo.png" alt="" id="belogo" />
+				<div class="container">
+					<nav class="nav">
+						<ul class="nav-list">
+							<li><a href="index.html" class="nav-link">Map</a></li>
+							<li><a href="index.html" class="nav-link">Details <span class="nav-counter">15</span></a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<div id="pageWrapper">
+				<div id="filterColumn">
+					<div id="filter">
+						<h1>Filter Data</h1><br />
+						<strong>Severity:</strong><br />
+						<input type="checkbox" id="normalChk" onclick="filter('normal')" /> Normal Activity<br />
+						<input type="checkbox" id="routineChk" onclick="filter('routine')" /> Routine Issues<br />
+						<input type="checkbox" id="nonroutineChk" onclick="filter('nonroutine')" /> Non-routine Issues<br />
+						<input type="checkbox" id="crisisChk" onclick="filter('crisis')" /> Crises<br />
+						<br />
+						<strong>Location:</strong><br />
+						<input type="checkbox" id="africaChk" onclick="" /> Africa<br />
+						<input type="checkbox" id="asiaChk" onclick="" /> Asia<br />
+						<input type="checkbox" id="australiaChk" onclick="" /> Australia<br />
+						<input type="checkbox" id="europeChk" onclick="" /> Europe<br />
+						<input type="checkbox" id="naChk" onclick="" /> North America<br />
+						<input type="checkbox" id="saChk" onclick="" /> South America<br />
+					</div>
+				</div>
+				<div id="dataColumn">
+					<table class="crisis">
+						<tr><th>Austin, Texas</th></tr><tr><td>This is a crisis</td></tr>
+					</table>
+					<table class="nr">
+						<tr><th>Austin, Texas</th></tr><tr><td>This is a non-routine issue.</td></tr>
+					</table>
+					<table class="r">
+						<tr><th>Austin, Texas</th></tr><tr><td>This is a routine issue.</td></tr>
+					</table>
+					<table class="nrm">
+						<tr><th>Austin, Texas</th></tr><tr><td>This is normal activity.</td></tr>
+					</table>
+				</div>
+				<div id="newsFeedColumn">
+					<div id="newsFeed">
+						<div class="update">Los Angeles is now back up and running at normal operating speeds.</div>
+						<div class="update">Message 2</div>
+						<div class="update">Los Angeles is now back up and running at normal operating speeds.</div>
+						<div class="update">Message 4</div>
+						<div class="update">Message 5</div>
+						<div class="update">Message 6</div>
+						<div class="update">Message 7</div>
+						<div class="update">Message 1</div>
+						<div class="update">Message 2</div>
+						<div class="update">Message 3</div>
+						<div class="update">Message 4</div>
+						<div class="update">Message 5</div>
+						<div class="update">Message 6</div>
+						<div class="update">Message 7</div>
+					</div>
+				</div>
+			</div>
+			<div id="messagePopup"></div>
+		</div>
+	</body>
+</html>
