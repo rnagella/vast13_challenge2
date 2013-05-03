@@ -87,18 +87,29 @@ margin-top: 40px;
    $("#id2").append("<br>");
    $("#id2").append("<h2><b>Statistics:</b></h4>");
    $("#id2").append("<h4>Network Speed</h4>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-  $("#id2").append("<h4>Network of Devices</h4>");
+   var speed = $('<span>&nbsp;</span>');
+    speed.sparkline([5,10,20,30,40,50,10,20,30], {
+      type: 'line',
+      width: '220',
+      height: '60'
+    });
+    $('#id2').append(speed);    
+    $.sparkline_display_visible();
+    $("#id2").append("<br>");
+    $("#id2").append("<br>");
+
+  $("#id2").append("<h4>Number of Devices</h4>");
+  var devices = $('<span>&nbsp;</span>');
+  devices.sparkline([4,5,6,79,12,1,5,6,7,8],{
+    type:'line',
+    width:'220',
+    height:'60'
+  });
+  $('#id2').append(devices);    
+  $.sparkline_display_visible();
   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-   $("#id2").append("<br>");
-    $("#id2").append("<h4>Health Ratings : "+info.health+"</h4>");
+
+  $("#id2").append("<h4>Health Ratings : "+info.health+"</h4>");
   
 
 
