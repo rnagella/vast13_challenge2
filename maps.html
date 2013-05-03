@@ -8,6 +8,16 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v0.min.js"></script>
 
+<script type="text/javascript" src="jquery.sparkline.js"></script>
+	<link href="http://omnipotent.net/jquery.sparkline/contrib/jquery.ui-1.6rc5/themes/spark/ui.core.css" rel="stylesheet"></link>
+	<link href="http://omnipotent.net/jquery.sparkline/contrib/jquery.ui-1.6rc5/themes/spark/ui.theme.css" rel="stylesheet"></link>
+	<link href="http://omnipotent.net/jquery.sparkline/contrib/jquery.ui-1.6rc5/themes/spark/ui.tabs.css" rel="stylesheet"></link>
+	<link href="http://omnipotent.net/jquery.sparkline/contrib/google-code-prettify/prettify.css" rel="stylesheet"></link>
+	<link href="http://omnipotent.net/jquery.sparkline/contrib/jpicker-1.1.6/css/jPicker-1.1.6.min.css" rel="stylesheet" type="text/css"></link>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
 <style>
 <!-- FOR PANEL -->
 	html, body { padding: 0; margin: 0; }
@@ -36,7 +46,7 @@ svg{
 border: solid 2px #ccc;
 align:center;
 margin-left: 20px;
-margin-top: 20px;
+margin-top: 40px;
 }
 </style>
 </head>
@@ -51,21 +61,27 @@ margin-top: 20px;
 			</div><!-- /content wrapper for padding -->
             				
 		</div><!-- /defaultpanel -->
+
+
+
 <script>
-	function panelInfo(info){
+
+
+	function panelinfo(info){
 	$("#id2").empty();
 	$("#id2").append("<h3><u>Network Status</u></h3>");
 	$("#id2").append("<h4>"+info.country+"</h4>");
 	//$("#id2").append("<a href=\"\" data-rel=\"close\" data-role=\"button\" data-theme=\"c\" data-icon=\"delete\" data-inline=\"true\">Close panel</a>");
 		console.log(info.country);
 	}
+	
 </script>
 <script>
 var width = 1160,
     height = 700;
 
 var projection = d3.geo.mercator()
-    .center([-50, 50 ])
+    .center([-10, 40 ])
     .scale(200)
     .rotate([0,0]);
 
@@ -94,7 +110,10 @@ d3.json("world-110m2.json", function(error, topology) {
     .enter()
       .append("path")
       .attr("d", path);
+
+
 	   d3.csv("cities.csv", function(error, data) {
+      console.log(data);
         dot = g.selectAll("circle")
            .data(data)
            .enter()
@@ -111,7 +130,7 @@ d3.json("world-110m2.json", function(error, topology) {
 		   
 		   
 		   dot.on("click",function(d){
-		   panelInfo(d);
+		   panelinfo(d);
 		   
 		   $( "#defaultpanel" ).panel( "open",d);
 		   
@@ -133,12 +152,66 @@ var zoom = d3.behavior.zoom()
             .attr("d", path.projection(projection)); 
 });
 
-function click1(d){
-	console.log(d);
-}
-
 svg.call(zoom);
 
 </script>
+
+<!---------------------------------------------------------------------->
+	  <section class="analytics">
+    <h4 class="analytics-title">Network Overview</h4>
+    <div class="analytics-chart">
+      <div class="analytics-colchart">
+        <div class="analytics-colgroup">
+          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 90%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
+        </div>
+        <div class="analytics-colgroup">
+          <div class="analytics-col"><div class="analytics-bar" style="height: 40%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 20%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 15%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 10%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 25%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
+        </div>
+        <div class="analytics-colgroup">
+          <div class="analytics-col"><div class="analytics-bar" style="height: 60%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 55%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 82%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
+        </div>
+        <div class="analytics-colgroup">
+          <div class="analytics-col"><div class="analytics-bar" style="height: 20%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 90%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
+          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
+        </div>
+      </div>
+      <div class="analytics-legend">
+        <p>Crises</p>
+        <p>Performance<</p>
+        <p>Routine</p>
+        <p>Non-Routine</p>
+      </div>
+    </div>
+    <div class="analytics-metrics">
+      <p class="analytics-count">984</p>
+      <p class="analytics-metric">Health rate <span>81%</span></p>
+      <p class="analytics-metric">Performance <span>92%</span></p>
+    </div>
+  </section>
+	<!---------------------------------------------------------------------->
+
 </body>
 </html>
