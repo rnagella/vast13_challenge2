@@ -16,6 +16,8 @@
 	<link href="http://omnipotent.net/jquery.sparkline/contrib/jpicker-1.1.6/css/jPicker-1.1.6.min.css" rel="stylesheet" type="text/css"></link>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="reset.css" />
+  <link href="layout.css" rel="stylesheet" type="text/css" />
 
 
 <style>
@@ -42,6 +44,15 @@ path {
   fill: none;
   pointer-events: all;
 }
+.yellow {
+background: #F8EE51;
+}
+.orange {
+background: #F8B751;
+}
+.red {
+background: #E55D5D;
+}
 svg{
 border: solid 2px #ccc;
 align:center;
@@ -51,21 +62,8 @@ margin-top: 40px;
 </style>
 </head>
 <body>
-  <div id="headerWrapper">
-    <img src="be_logo.png" alt="" id="belogo" />
-    <div class="container">
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link">Map</a></li>
-          <li><a href="index.html" class="nav-link">Details <span class="nav-counter">15</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
 <!--defaultpanel  -->
 		<div data-role="panel" id="defaultpanel" data-theme="b" data-display="overlay" data-position="right">
-				
 			<div id="id2" class="panel-content">
 				
 				
@@ -73,15 +71,37 @@ margin-top: 40px;
             				
 		</div><!-- /defaultpanel -->
 
-
-
 <script>
 
 
 	function panelinfo(info){
-	$("#id2").empty();
-	$("#id2").append("<h3><u>Network Status</u></h3>");
-	$("#id2").append("<h4>"+info.country+"</h4>");
+      
+
+  $("#defaultpanel").css("background",info.color);
+  $("#id2").empty();
+	$("#id2").append("<h2><b><u>Network Status</u></b></h2>");
+	$("#id2").append("<h4><b>"+info.city+", "+info.country+"</b></h4>");
+   $("#id2").append("<br>");
+  $("#id2").append("<h2><b>Message:</b></h4>");
+   $("#id2").append("<h4>"+info.message+"</h4>");
+   $("#id2").append("<br>");
+   $("#id2").append("<h2><b>Statistics:</b></h4>");
+   $("#id2").append("<h4>Network Speed</h4>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+  $("#id2").append("<h4>Network of Devices</h4>");
+  $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+   $("#id2").append("<br>");
+    $("#id2").append("<h4>Health Ratings : "+info.health+"</h4>");
+  
+
+
 	//$("#id2").append("<a href=\"\" data-rel=\"close\" data-role=\"button\" data-theme=\"c\" data-icon=\"delete\" data-inline=\"true\">Close panel</a>");
 		console.log(info.country);
 	}
@@ -166,65 +186,5 @@ var zoom = d3.behavior.zoom()
 svg.call(zoom);
 
 </script>
-<!-- later design-->
-<!---------------------------------------------------------------------->
-<!--
-	  <section class="analytics">
-    <h4 class="analytics-title">Network Overview</h4>
-    <div class="analytics-chart">
-      <div class="analytics-colchart">
-        <div class="analytics-colgroup">
-          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 90%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
-        </div>
-        <div class="analytics-colgroup">
-          <div class="analytics-col"><div class="analytics-bar" style="height: 40%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 20%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 15%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 10%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 25%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
-        </div>
-        <div class="analytics-colgroup">
-          <div class="analytics-col"><div class="analytics-bar" style="height: 60%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 55%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 82%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
-        </div>
-        <div class="analytics-colgroup">
-          <div class="analytics-col"><div class="analytics-bar" style="height: 20%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 30%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 50%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 90%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 80%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 70%;"></div></div>
-          <div class="analytics-col"><div class="analytics-bar" style="height: 35%;"></div></div>
-        </div>
-      </div>
-      <div class="analytics-legend">
-        <p>Crises</p>
-        <p>Performance<</p>
-        <p>Routine</p>
-        <p>Non-Routine</p>
-      </div>
-    </div>
-    <div class="analytics-metrics">
-      <p class="analytics-count">984</p>
-      <p class="analytics-metric">Health rate <span>81%</span></p>
-      <p class="analytics-metric">Performance <span>92%</span></p>
-    </div>
-  </section>
--->
-	<!---------------------------------------------------------------------->
-
 </body>
 </html>
