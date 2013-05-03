@@ -1,18 +1,18 @@
 code,city,country,lat,lon,color
-DEL,DELHI,INDIA,28.661671,77.2229,#FF0000
-HYD,HYDERABAD,INDIA,17.392579,78.486328,#47B247
-Dallas,TEXAS,USA,32.794201,-96.80397,#FFFF00
-Los Angeles,CALIFORNIA,USA,34.095885,-118.24173,#FF0000
-Paris,Paris,FRANCE,48.863811,2.353134,#47B247
-Beijing,Beijing,China,39.937119,116.40564,#47B247
-Toronto, Toronto, Canada,43.665885,-79.383087,#47B247
-Mexico City, Mexico,Mexico,19.462708,-99.133759,#FF0000
-Santiago, Chile, South America,-33.41081,-70.655823,#47B247
-Johannesburg, Gauteng, South Africa,-26.197033,28.048096,#FF0000
-Cario, Cairo Governorate, Egypt,30.05186,31.236534,#FF0000
-Sydney, New South Wales, Australia,-33.822512,151.213074,#FF0000
-Perth, Western Australia, Australia,-31.905541,115.864563,#FF0000
-Dhoby Ghaut,Dhoby Ghaut, Singapore,1.298797,103.845938,#FF0000
-Tokyo, Tokyo, Japan,35.700802,139.695282,#FF0000
-London, London, United Kingdom,51.53096,-0.11673,#FF0000
-Washington, Washington, DC,38.904927,-77.036133, #FF0000
+DEL,DELHI,INDIA,28.661671,77.2229,#F8EE51
+HYD,HYDERABAD,INDIA,17.392579,78.486328,#F8B751
+Dallas,TEXAS,USA,32.794201,-96.80397,#F8B751
+Los Angeles,CALIFORNIA,USA,34.095885,-118.24173,#F8EE51
+Paris,Paris,FRANCE,48.863811,2.353134,#F8B751
+Beijing,Beijing,China,39.937119,116.40564,#F8B751
+Toronto, Toronto, Canada,43.665885,-79.383087,#F8B751
+Mexico City, Mexico,Mexico,19.462708,-99.133759,#F8EE51
+Santiago, Chile, South America,-33.41081,-70.655823,#F8B751
+Johannesburg, Gauteng, South Africa,-26.197033,28.048096,#E55D5D
+Cario, Cairo Governorate, Egypt,30.05186,31.236534,#E55D5D
+Sydney, New South Wales, Australia,-33.822512,151.213074,#F8EE51
+Perth, Western Australia, Australia,-31.905541,115.864563,#E55D5D
+Dhoby Ghaut,Dhoby Ghaut, Singapore,1.298797,103.845938,#E55D5D
+Tokyo, Tokyo, Japan,35.700802,139.695282,#F8EE51
+London, London, United Kingdom,51.53096,-0.11673,#E55D5D
+Washington, Washington, DC,38.904927,-77.036133, #F8EE51
