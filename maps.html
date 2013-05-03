@@ -87,8 +87,24 @@ margin-top: 40px;
    $("#id2").append("<br>");
    $("#id2").append("<h2><b>Statistics:</b></h4>");
    $("#id2").append("<h4>Network Speed</h4>");
+   var speeddata = info.speed;
+   var speed1 = info.speed;
+   var devicedata = info.devices;
+   var l = speeddata.length;
+
+   var sinput="";
+   console.log(speeddata.length);
+   for(var c=1;c<speeddata.length-1;c++){
+     sinput=sinput+speeddata[c]+",";
+     console.log(sinput);
+
+   }
+   
+   sinput = sinput+speeddata[l-1];
+   console.log(sinput);
+
    var speed = $('<span>&nbsp;</span>');
-    speed.sparkline([5,10,20,30,40,50,10,20,30], {
+    speed.sparkline([speed1[0],speed1[1],speed1[2],speed1[3],speed1[4],speed1[5],speed1[6],speed1[7],speed1[8],speed1[9],speed1[10],speed1[11]], {
       type: 'line',
       width: '220',
       height: '60'
@@ -100,7 +116,7 @@ margin-top: 40px;
 
   $("#id2").append("<h4>Number of Devices</h4>");
   var devices = $('<span>&nbsp;</span>');
-  devices.sparkline([4,5,6,79,12,1,5,6,7,8],{
+  devices.sparkline([devicedata[0],devicedata[1],devicedata[2],devicedata[3],devicedata[4],devicedata[5],devicedata[6],devicedata[7],devicedata[8],devicedata[9]],{
     type:'line',
     width:'220',
     height:'60'
@@ -154,7 +170,7 @@ d3.json("world-110m2.json", function(error, topology) {
       .attr("d", path);
 
 
-	   d3.csv("cities.csv", function(error, data) {
+	   d3.csv("cities2.csv", function(error, data) {
       console.log(data);
         dot = g.selectAll("circle")
            .data(data)
@@ -166,7 +182,7 @@ d3.json("world-110m2.json", function(error, topology) {
            .attr("cy", function(d) {
                    return projection([d.lon, d.lat])[1];
            })
-           .attr("r", 10)
+           .attr("r", function(d){return d.radius;})
            .style("fill", function(d){return d.color;});
 		   
 		   
